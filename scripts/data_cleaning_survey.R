@@ -1,9 +1,9 @@
-library("readxl")
-library("here")
-library("tidyverse")
-library("dplyr")
-library(janitor)
+#### Preamble ####
+# Purpose: Clean survey data
+# Prerequisites: Run install_dependencies.R before to get required packages. You must download data from KOSIS. Read read.me
+# Author: Youngho Kim
 
+#retrieve data
 work_satis <- read_csv(here::here("inputs/data/raw/Level_of_Satisfaction_on_Work_Conditions__Efforts_to_prevent_Violence__13_years_old_and_over__20230419025955.csv"))
 env_in_future <- read_csv(here::here("inputs/data/raw/Environment_in_the_future__As_Compared_with_5_Years_Ago__13_years_old_and_over__20230419030705.csv"))
 sentiment_in_surr <- read_csv(here::here("inputs/data/raw/Sentiment_in_the_Present_Surrounding_Environment__Air__13_years_old_and_over__20230419030642.csv"))
@@ -116,6 +116,8 @@ self_health[1,1] <- "Self Health Assessment"
 self_health<-self_health %>% 
   row_to_names(row_number = 1)
 
+
+#save 
 write.csv(work_satis, "inputs/data/cleaned/work_satis.csv", row.names=FALSE)
 write.csv(env_in_future, "inputs/data/cleaned/env_in_future.csv", row.names=FALSE)
 write.csv(sentiment_in_surr, "inputs/data/cleaned/sentiment_in_surr.csv", row.names=FALSE)
