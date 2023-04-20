@@ -1,13 +1,13 @@
 ---
 title: "Korean Demographic Cliff Social Impact∗"
-subtitle: "future issue"
+subtitle: "Rapid Decline of Population in Korea and its impact on public perception of the society"
 author: "Youngho Kim"
 format: pdf
 editor: visual
 toc: TRUE
 number-sections: TRUE
-thanks: "Code and data are available at: https://github.com/Alicia-y/Telling-stories-with-data-final-paper"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+thanks: "Code and data are available at: https://github.com/YoungKim164/kroea_pop"
+date: 2023-04-20
 abstract: "Korea is facing an unprecedented demographic cliff. Moreover, this is reported and discussed publically by popular media. In this paper, we will look at the current status of Korea demographic, as well as psychological and economic connection of population cliffs to society."
 bibliography: references.bib
 ---
