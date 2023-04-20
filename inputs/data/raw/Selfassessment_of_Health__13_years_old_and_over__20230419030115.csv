@@ -1,0 +1,98 @@
+"By city & province(1)","Type(1)",Type(2),2022,2022,2022,2022,2022,2022
+"By city & province(1)","Type(1)",Type(2),Total,Very good,Good,Average,Bad,Very bad
+"Whole country","Total",Total,100.0,11.5,41.6,34.9,10.8,1.2
+"Whole country","Total for Dongs, Eups & Myeons",Total for Dongs,100.0,11.4,42.0,35.1,10.3,1.2
+"Whole country","Total for Dongs, Eups & Myeons",Total for Eups & Myeons,100.0,11.9,39.6,33.6,13.3,1.5
+"Whole country","Gender",Male,100.0,13.3,43.1,33.5,9.0,1.1
+"Whole country","Gender",Female,100.0,9.7,40.1,36.2,12.6,1.4
+"Whole country","Generation",Single household,100.0,9.8,38.5,31.4,17.8,2.5
+"Whole country","Generation",One generation household,100.0,7.2,37.5,39.0,14.5,1.8
+"Whole country","Generation",Two generation household,100.0,13.6,44.4,34.0,7.3,0.7
+"Whole country","Generation",Three or more generation household,100.0,14.1,38.1,35.7,11.1,1.0
+"Whole country","Number of household member",1 person,100.0,9.8,38.5,31.4,17.8,2.5
+"Whole country","Number of household member",2 persons,100.0,7.9,37.8,37.9,14.7,1.7
+"Whole country","Number of household member",3 persons,100.0,11.6,44.1,35.7,7.7,0.9
+"Whole country","Number of household member",4 persons and over,100.0,15.8,44.9,33.1,5.8,0.4
+"Whole country","Age",13~19 years old,100.0,32.1,48.0,18.4,1.4,0.0
+"Whole country","Age",20~29 years old,100.0,23.2,49.1,23.9,3.7,0.1
+"Whole country","Age",30~39 years old,100.0,15.2,50.2,29.7,4.6,0.2
+"Whole country","Age",40~49 years old,100.0,8.2,46.5,38.2,6.8,0.3
+"Whole country","Age",50~59 years old,100.0,6.5,41.7,42.4,8.6,0.9
+"Whole country","Age",60~69 years old,100.0,4.5,34.4,43.2,16.4,1.6
+"Whole country","Age",70~79 years old,100.0,2.6,23.4,42.4,27.3,4.3
+"Whole country","Age",80 years old and over,100.0,1.8,14.2,28.6,46.9,8.4
+"Whole country","Age",60 years old and over,100.0,3.5,28.0,40.7,24.3,3.5
+"Whole country","Age",60~64 years old,100.0,5.1,36.2,42.6,14.8,1.4
+"Whole country","Age",65 years old and over,100.0,2.8,24.2,39.7,28.8,4.4
+"Whole country","Age",65~69 years old,100.0,3.7,31.9,44.0,18.5,1.9
+"Whole country","Educational Attainment",Elementary School Graduate & Under,100.0,9.0,23.9,33.1,29.5,4.6
+"Whole country","Educational Attainment",Middle School Graduate,100.0,12.2,33.2,36.6,16.2,1.7
+"Whole country","Educational Attainment",High School Graduate,100.0,11.5,41.5,36.9,9.1,1.0
+"Whole country","Educational Attainment",College or University Graduate & Over,100.0,12.1,49.1,33.2,5.2,0.3
+"Whole country","Marital Status",Never married,100.0,22.0,47.6,25.3,4.8,0.4
+"Whole country","Marital Status",Married,100.0,7.5,41.5,39.6,10.3,1.1
+"Whole country","Marital Status",Widowed,100.0,2.2,19.3,34.6,38.4,5.5
+"Whole country","Marital Status",Divorced,100.0,6.3,35.4,39.3,16.7,2.3
+"Whole country","Economically Active",Employed,100.0,10.7,46.0,36.1,7.0,0.2
+"Whole country","Economically Active",Unemployed or Not Economically Active,100.0,12.6,35.7,33.3,15.8,2.5
+"Whole country","Industry",Agriculture & Fishery,100.0,5.8,37.9,40.3,15.2,0.9
+"Whole country","Industry",Mining & Manufacturing,100.0,10.5,46.3,37.7,5.4,0.1
+"Whole country","Industry",Social overhead capital & other service,100.0,11.1,46.5,35.4,6.8,0.2
+"Whole country","Occupation",Pro. Tech. Managers,100.0,12.6,50.8,32.1,4.4,0.1
+"Whole country","Occupation",Clerks,100.0,12.2,49.8,32.9,4.9,0.1
+"Whole country","Occupation",Service & Sales Workers,100.0,10.3,44.9,37.6,7.0,0.2
+"Whole country","Occupation",Agri. Fishery Workers,100.0,5.4,37.6,40.7,15.4,0.9
+"Whole country","Occupation",Craft Operator Assemblers,100.0,9.3,42.1,39.3,8.9,0.4
+"Whole country","Status of Worker",Wage and salary worker,100.0,11.5,46.9,35.2,6.2,0.2
+"Whole country","Status of Worker",Employer,100.0,10.3,48.2,36.4,4.9,0.2
+"Whole country","Status of Worker",Own account worker,100.0,7.4,43.1,38.7,10.3,0.5
+"Whole country","Satisfaction with Life",Satisfied,100.0,18.7,52.0,24.2,4.8,0.4
+"Whole country","Satisfaction with Life",Neither satisfied nor dissatisfied,100.0,6.5,36.7,43.9,11.8,1.0
+"Whole country","Satisfaction with Life",Dissatisfied,100.0,4.8,24.2,40.6,26.1,4.4
+"Whole country","Average Monthly Household Income",less than 1000 thousand won,100.0,6.5,22.8,33.5,31.4,5.8
+"Whole country","Average Monthly Household Income",1000-2000 thousand won,100.0,7.4,33.4,39.1,18.0,2.0
+"Whole country","Average Monthly Household Income",2000-3000 thousand won,100.0,10.5,41.4,36.9,10.4,0.8
+"Whole country","Average Monthly Household Income",3000-4000 thousand won,100.0,12.1,44.2,35.8,7.3,0.6
+"Whole country","Average Monthly Household Income",4000-5000 thousand won,100.0,12.0,47.7,33.6,6.4,0.4
+"Whole country","Average Monthly Household Income",5000-6000 thousand won,100.0,14.4,45.8,34.6,5.0,0.2
+"Whole country","Average Monthly Household Income",6000 thousand won and over,100.0,15.1,47.8,31.7,5.0,0.3
+"Whole country","Age*Gender",13~19 years old*Male,100.0,33.8,47.0,17.5,1.7,-
+"Whole country","Age*Gender",13~19 years old*Female,100.0,30.3,49.1,19.5,1.0,0.1
+"Whole country","Age*Gender",20~29 years old*Male,100.0,26.3,46.9,22.9,3.7,0.1
+"Whole country","Age*Gender",20~29 years old*Female,100.0,19.6,51.6,25.1,3.6,0.1
+"Whole country","Age*Gender",30~39 years old*Male,100.0,17.9,49.9,27.2,4.8,0.2
+"Whole country","Age*Gender",30~39 years old*Female,100.0,12.2,50.7,32.4,4.4,0.3
+"Whole country","Age*Gender",40~49 years old*Male,100.0,8.4,47.4,37.4,6.5,0.3
+"Whole country","Age*Gender",40~49 years old*Female,100.0,8.0,45.6,38.9,7.1,0.3
+"Whole country","Age*Gender",50~59 years old*Male,100.0,7.2,43.5,40.4,8.0,0.9
+"Whole country","Age*Gender",50~59 years old*Female,100.0,5.7,39.8,44.4,9.3,0.9
+"Whole country","Age*Gender",60 years old and over*Male,100.0,4.4,32.0,41.0,19.4,3.2
+"Whole country","Age*Gender",60 years old and over*Female,100.0,2.8,24.7,40.4,28.4,3.7
+"Whole country","Age*Educational Attainment",20~29 years old*Middle School Graduate & Under,100.0,8.0,54.2,33.0,4.8,-
+"Whole country","Age*Educational Attainment",20~29 years old*High School Graduate,100.0,25.3,47.0,23.7,3.9,0.2
+"Whole country","Age*Educational Attainment",20~29 years old*College or University & Over,100.0,21.2,51.3,24.1,3.4,0.1
+"Whole country","Age*Educational Attainment",30~39 years old*Middle School Graduate & Under,100.0,15.7,55.5,23.3,5.5,-
+"Whole country","Age*Educational Attainment",30~39 years old*High School Graduate,100.0,13.4,46.2,32.1,7.6,0.7
+"Whole country","Age*Educational Attainment",30~39 years old*College or University & Over,100.0,15.8,51.4,29.0,3.7,0.1
+"Whole country","Age*Educational Attainment",40~49 years old*Middle School Graduate & Under,100.0,2.1,42.0,38.4,15.7,1.9
+"Whole country","Age*Educational Attainment",40~49 years old*High School Graduate,100.0,8.2,41.6,41.2,8.6,0.4
+"Whole country","Age*Educational Attainment",40~49 years old*College or University & Over,100.0,8.5,49.4,36.5,5.4,0.1
+"Whole country","Age*Educational Attainment",50~59 years old*Middle School Graduate & Under,100.0,4.6,31.1,46.7,15.8,1.8
+"Whole country","Age*Educational Attainment",50~59 years old*High School Graduate,100.0,6.2,40.0,43.5,9.2,1.2
+"Whole country","Age*Educational Attainment",50~59 years old*College or University & Over,100.0,7.2,46.5,39.9,6.0,0.4
+"Whole country","Age*Educational Attainment",60 years old and over*Middle School Graduate & Under,100.0,2.6,19.4,39.5,33.6,4.9
+"Whole country","Age*Educational Attainment",60 years old and over*High School Graduate,100.0,3.9,34.5,43.3,16.1,2.3
+"Whole country","Age*Educational Attainment",60 years old and over*College or University & Over,100.0,5.8,43.6,39.4,10.0,1.2
+"Whole country","Regularly exerciser",Regularly exerciser,100.0,15.5,46.4,30.3,7.1,0.6
+"Whole country","Regularly exerciser",Others,100.0,8.2,37.5,38.7,13.9,1.7
+"Whole country","Registration card for the disabled",The disabled,100.0,4.4,22.0,33.6,32.3,7.7
+"Whole country","Registration card for the disabled",Others,100.0,11.9,42.6,34.9,9.7,0.9
+"Whole country","Smoking",Smokers,100.0,11.4,41.7,36.2,9.7,1.0
+"Whole country","Smoking",Non-smokers,100.0,11.6,41.5,34.6,11.0,1.3
+"Whole country","Drinking",Drinking,100.0,11.8,46.0,35.1,6.7,0.3
+"Whole country","Drinking",No Drinking,100.0,11.2,35.5,34.5,16.4,2.4
+"Whole country","Frequrency of drinking",Less than once per month,100.0,11.1,44.6,36.6,7.3,0.3
+"Whole country","Frequrency of drinking",2~3 times per month,100.0,12.9,47.7,32.8,6.3,0.3
+"Whole country","Frequrency of drinking",1~2 times per week,100.0,12.4,47.8,34.2,5.5,0.2
+"Whole country","Frequrency of drinking",3~4 times per week,100.0,10.4,43.6,38.5,7.1,0.4
+"Whole country","Frequrency of drinking",Almost everyday,100.0,7.8,38.7,38.7,13.3,1.5

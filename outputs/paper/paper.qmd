@@ -1,0 +1,312 @@
+---
+title: "Korean Demographic Cliff Social Impact∗"
+subtitle: "future issue"
+author: "Youngho Kim"
+format: pdf
+editor: visual
+toc: TRUE
+number-sections: TRUE
+thanks: "Code and data are available at: https://github.com/Alicia-y/Telling-stories-with-data-final-paper"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+abstract: "Korea is facing an unprecedented demographic cliff. Moreover, this is reported and discussed publically by popular media. In this paper, we will look at the current status of Korea demographic, as well as psychological and economic connection of population cliffs to society."
+bibliography: references.bib
+---
+
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+library("readxl")
+library("here")
+library("tidyverse")
+library("dplyr")
+library("janitor")
+library("knitr")
+library("kableExtra")
+library("patchwork")
+library("scales")
+```
+
+## Introduction
+
+Population is the most fundamental element of society. A stable demographic structure is the basis for economic growth and determines the form of social structure. But the population structure doesn't form overnight, rather it's accumulation of birth, natural mortality, and the immigration over decades. And it's influenced heavily from political decisions, social movements, and the trend of the times. Population decline is a common phenomenon in developed countries that are on an economically stable track, and Korea, which has made remarkable economic growth in the 50 years since the end of Korean War, could not avoid it. In fact, as a counter reaction of rapid growth, Korea is suffering more deadly and rapid population decline that was never found in any other country. The current situation in Korea is so serious that the term "Demographic Cliff" created by Harry Dent is not difficult to find in public media.
+
+The "Demographic Cliff" is a theoretical term used to describe a social situation in which a country or region experiences a significant decline in its population due to low birth rates and an aging population. This can lead to a range of economic and social challenges, including a shrinking workforce, increased healthcare costs, and reduced consumer spending. The term was popularized by author and demographer Harry Dent, who has argued that demographic trends are a key driver of economic cycles. However, some economists and demographers have criticized Dent's theories, arguing that other factors such as technological innovation and government policy are also important drivers of economic growth. Also, many modern countries like Germany and Japan, does not followed the Harry Dent's Demographic Cliff model. Therefore it remained as a theoretical model to predict population change in limited circumstances until now Korea's population decline happened.
+
+The population decline in Korea is so rapid that it has become a social phenomenon that anyone can easily observe. From elementary school to university, many schools regardless their the level of education in the metropolitan area are closing due to a lack of students, and national security is threatened by a lack of conscription population. As population issues began to become increasingly visible, they began to negatively affect other social issues, including gender conflicts, generational conflicts, regional disparities, and housing issues. This document will focus on how the popular introduction of rapid population decline influenced people's perception of daily life and social problems.
+
+The data used in this report is obtained from Open API KOSIS[@kosis], Korean Statistical Information Service. The data is analyzed with R[@cite-r] and Rstudio[@cite-rstudio] and analized with various packages. readxl[@cite-readxl] and here[@cite-here] packages are used to retrieve attained data from KOSIS[@kosis] to the environment. tidyverse[@cite-tidyverse], dplyr[@cite-dplyr], janitor[@cite-janitor], and knitr[@cite-knitr] packages are used to manipulate the data in a fit for research purposes. kableExtra[@cite-kableExtra], patchwork[@cite-patchwork], and scales[@cite-scales] are used to shape the result into intuitive visual format. For details of each data and the data cleaning process that is tailored to the purpose of the document can be found in @sec-data. 
+
+Linear regression model is used in this paper to get an insight of public perception and current trend of Korea demographic changes. @sec-model describes how this model works in purpose of this research and the result of the implication of the model on the data. @sec-result discuss the result of data manipulation with organized result of the data. The discussion is carried out in @sec-discussion about findings from the result regarding social and political impact of current phenomenon, and suggested reaction to it. It also discusses about potential weaknesses and further reaserches of this paper. 
+
+
+## Data {#sec-data}
+### Data Sources {#sec-datasource}
+The data used in this report is obtained from Open API KOSIS, Korean Statistical Information Service. The data named "Summary of Census Population(by administrative districtsexage) 1960-2010"is demographic data from the census, which was implemented every five years from 1960, five years after the Korean War armistice, to 2010. This data were used to predict the current population status of South Korea and changes in the number of people over the next 30 years, along with the census's demographics, which were implemented annually from 2015 to 2020 under a changed policy. The second annual census data is named "Population, Households and Housing Units 2015-2020". The analized result can be found in @sec-population-trend.
+
+Various survey data were also researched to gain insight into the current social perception of the childbearing age population. The data named "Class_Awareness__19_years_old_and_over" is a survey of where each individual thinks their social position is. It's important to note that this is not data based on actual capital, occupation, or social influence, but rather a questionnaire about one's position that an individual feels when considering various factors. The data named "Degree_of_Stress__General_Life__13_years_old_and_over" is a survey of the stress that each individual feels in their overall lives. This data is also a survey of the frequency of stress that individuals feel subjectively, not based on numerical data of work burden, leisure time, or wealth of assets. The data named "Environment_in_the_future__As_Compared_with_5_Years_Ago__13_years_old_and_over" is a prediction of changes in the future environment. This is also a survey of individual guesses, not scientific analysis data through factors such as air quality, degree of industrialization, or future technological development. This data shows how optimistic or pessimistic the Korean people are about future environmental changes. It also indirectly expresses individual thoughts on the current environmental condition of Korea. As environmental climate issues are highlighted in the public, these data are included because the impact of environmental awareness on individual future life design is increasing. The data named "Level_of_Satisfaction_on_Work_Conditions__Efforts_to_prevent_Violence__13_years_old_and_over" is a satisfaction survey of the workplace environment. Since Korea is mentioned every year as one of the most working hours country within OECD countries, satisfaction in the workplace environment is a very important data to learn about the public's social perception. The data named "Satisfaction_with_Achievement__19_years_old_and_over" is a survey of individuals' achievements in their lives to date that they feel. This is similar to the daily life satisfaction survey, but it does not focus on the present life, but on the satisfaction of the past life so far, and the expectation of the future of how much more you can achieve in the future. The data named "Satisfaction_with_Life__13_years_old_and_over" is currently a survey of individual life satisfaction. This is a direct survey of the level of satisfaction with current life. However, it is not a survey of the current standard of living, but a measure of satisfaction with it, and it is a data to find out how people feel about their current living conditions, not the living conditions themselves. The data named "Selfassessment_of_Health__13_years_old_and_over" is about how individuals feel about their health. This is also subjective data on the health status of individuals, not objective data calculated by examining national health care, access to medical services, or disease incidence. This indirectly shows satisfaction and reliability with the current level of medical services in Korea.The data named "Sentiment_in_the_Present_Surrounding_Environment" is a survey of how individuals feel about the current environmental conditions in Korea. This directly represents the level of people's awareness of the current environment of the Republic of Korea as they focused on the present, not on speculation and expectation of the future. The data named "Trust_in_Korean_Society"
+
+### Data Cleaning
+
+The obtained data from KOSIS[@cite-kosis] is cleaned to meet the purpose of focus of this paper. For most of the dataset, unnecessary categories have been eliminated as the point of this paper is aimed at the social awareness of childbearing age citizens. So that the revised figures can provide the most accurate information according
+to our analysis and not have any information that is unrelevant to our analysis. In addition, general demographic data has been modified to a suitable form for applying the linear regression model used. The modification includes eliminating district specific data, eliminating undefined data, eliminating data summaries, and merging the different forms of census before and after 2015.
+
+### Data Visualization
+
+The sorted data is summarized in graphs and tables for easy visibility. Census data, a vast quantitative data, are represented at a glance by representing it in linear graphs, and surveys based on individual responses are abbreviated into tables, transforming them into distinctions between important categories. This visual data, which will be discussed in greater detail later in the @sec-model and @sec-result section, has provided a deep understanding of the agenda and opened up the possibility of an insighting discussion on @sec-discussion.
+
+
+
+## Model {#sec-model}
+
+A linear regression model was used to estimate the trend of population change in Korea and to predict population change over the next 30 years. The most important thing about predicting population change is to remind you that population change can change as roughly as much as possible and escape speculation with big errors. Birth rates, mortality, immigration, etc. that directly affect the population are easily measurable, but the second level factors that affect these first level factors, such as economic stability felt by young people, social views of underage births, parenting burdens in families and societies, and a country's social and cultural image. Of course, it is also absurd to say that all of this is absolutely impossible to measure, but it is also almost impossible to put all of this into the model and include it in the calculation.
+
+The forecast for population change in this document is limited to 30 years, a relatively short period unlike other population-related studies, because population change itself is not the core content of this document, along with the preceding reasons. The purpose of predicting the trend of population change in this document is not to predict the exact figure, but to understand the overall direction and trend of the current population change in Korea. Through this, the focus was on sharing and understanding the feelings and rough perceptions of the public in Korean society, which is currently facing a population cliff.
+
+Linear regression is a statistical method used to model the relationship between one or more independent variables and the resulting variable. Given sufficient independent variables in measuring the association between the two, you can predict future variations in the variable. In this paper, simple linear regression is selected among linear regression models for estimating population fluctuations because the accuracy of predictions is not of great importance and its purpose is to determine trends. Simple linear regression has only one independent variable, making it easy to apply the model and intuitive to understand. However, since only one independent variable is considered, the results can be significantly fluctuated for other external factors, and it is difficult to speculate on variable data because it assumes a linear relationship between the two variables. The trend of population fluctuations in this study is to see its direction rather than to derive accurate estimates, also since the estimation period is limited simple linear regression analysis is very suitable .
+
+The goal of linear regression is to find the best-fitting line that minimizes the sum of squared errors between the predicted values and the actual values of the dependent variable. This line is represented by a linear equation in the form of following
+
+$$
+y = b_0 + b_1x + e
+$$
+
+where Y represents the dependent variable, that is, the expected number of people, and X is the independent variable, in this case, the time in years. β0 and β1 are the coefficients or parameters of the model, and e is the error term.
+
+The coefficients in the model represent the slope of the line or hyperplane and the intercept using the y-axis. This is the best value calculated from the previous data. For β1, which represents the slope, it represents the degree to which the dependent variable changes when the independent variable changes on a unit basis. For β0, which represents an intercept, it represents the value of the dependent variable when the independent variable is 0.
+
+The results of the model application can be found on @fig-2 in the @sec-population-trend.
+
+
+
+## Result {#sec-result}
+### Population Trend {#sec-population-trend}
+
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 5
+#| fig-cap: "Population chages from 1960 to 2020"
+#| label: fig-1
+total_pop <- read_csv(here::here("inputs/data/cleaned/total_pop.csv"))
+
+total_pop <- as.data.frame(t(total_pop)) %>%
+  row_to_names(row_number = 1)
+
+total_pop <- tibble::rownames_to_column(total_pop, "year")
+
+total_pop <- total_pop %>% 
+  mutate(year = as.numeric(str_remove_all(year, " Year"))) %>% 
+  mutate(`Whole country`=as.numeric(`Whole country`)) %>% 
+  mutate(Seoul=as.numeric(Seoul))
+         
+p1 <- ggplot(total_pop, aes(x=year, y=`Whole country`, group=1)) +
+  geom_line(aes(y=`Whole country`),color="grey") +
+  geom_point(aes(y=`Whole country`))+
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))+
+  ggtitle("whole country")+
+  labs(y= "Population", x = "Year")
+
+p2 <- ggplot(total_pop, aes(x=year, y=Seoul, group=1)) +
+  geom_line(aes(y=Seoul),color="grey") +
+  geom_point(aes(y=Seoul))+
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))+
+  ggtitle("Seoul")+
+  labs(y= "Population", x = "Year")
+
+# Display both charts side by side thanks to the patchwork package
+p1 + p2
+
+```
+
+
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-cap: "Population Trend Prediction from 2020 to 2050"
+#| label: fig-2
+
+total_pop <- read_csv(here::here("inputs/data/cleaned/total_pop.csv"))
+
+total_pop <- as.data.frame(t(total_pop)) %>%
+  row_to_names(row_number = 1)
+
+total_pop <- tibble::rownames_to_column(total_pop, "year")
+
+total_pop <- total_pop %>% 
+  mutate(year = as.integer(str_remove_all(year, " Year")),
+         `Whole country` = as.integer(`Whole country`),
+         Seoul = as.integer(Seoul)
+         )
+
+#calculate growth rate
+growth_rate = total_pop %>%
+  mutate(Diff_year = year - lag(year),  # Difference in time (just in case there are gaps)
+         Diff_growth_whole = `Whole country` - lag(`Whole country`), # Difference in route between years
+         Rate_percent_whole = (Diff_growth_whole / Diff_year)/`Whole country` * 100,
+         Diff_growth_seoul = `Seoul` - lag(`Seoul`), # Difference in route between years
+         Rate_percent_seoul = (Diff_growth_seoul / Diff_year)/`Seoul` * 100,
+         ) # growth rate in percent
+
+#linear model
+whole_linear_model <- lm(Rate_percent_whole~year, data = growth_rate)
+seoul_linear_model <- lm(Rate_percent_seoul~year, data = growth_rate)
+
+#predict
+years <- data.frame(year = c(2025,2030,2035,2040,2045,2050))
+whole_predict_data <- as.data.frame(predict(whole_linear_model, newdata = years, interval = 'confidence')) %>% 
+  mutate(years)
+seoul_predict_data <- as.data.frame(predict(seoul_linear_model, newdata = years, interval = 'confidence')) %>% 
+  mutate(years)
+
+
+#apply predicted growth rate
+fit_pop=c(growth_rate[18,2])
+for (val in 1:6){
+  fit_pop <- append(fit_pop, fit_pop[val]+(fit_pop[val]*whole_predict_data[val,1]/20))
+}
+
+
+lwr_pop=c(growth_rate[18,2])
+for (val in 1:6){
+  lwr_pop <- append(lwr_pop, lwr_pop[val]+(lwr_pop[val]*whole_predict_data[val,2]/20))
+}
+
+upr_pop=c(growth_rate[18,2])
+for (val in 1:6){
+  upr_pop <- append(upr_pop, upr_pop[val]+(upr_pop[val]*whole_predict_data[val,3]/20))
+}
+
+whole_predict_data <- whole_predict_data %>% 
+  add_row(year=2021)
+
+whole_predict_data <- whole_predict_data[order(whole_predict_data$year),]
+
+rownames(whole_predict_data) = NULL
+
+whole_predict_data <- whole_predict_data %>% 
+  mutate(fit_pop,lwr_pop,upr_pop)
+
+
+#apply predict for seoul
+fit_pop=c(growth_rate[18,3])
+for (val in 1:6){
+  fit_pop <- append(fit_pop, fit_pop[val]+(fit_pop[val]*seoul_predict_data[val,1]/20))
+}
+
+
+lwr_pop=c(growth_rate[18,3])
+for (val in 1:6){
+  lwr_pop <- append(lwr_pop, lwr_pop[val]+(lwr_pop[val]*seoul_predict_data[val,2]/20))
+}
+
+upr_pop=c(growth_rate[18,3])
+for (val in 1:6){
+  upr_pop <- append(upr_pop, upr_pop[val]+(upr_pop[val]*seoul_predict_data[val,3]/20))
+}
+
+seoul_predict_data <- seoul_predict_data %>% 
+  add_row(year=2021)
+
+seoul_predict_data <- seoul_predict_data[order(seoul_predict_data$year),]
+
+rownames(seoul_predict_data) = NULL
+
+seoul_predict_data <- seoul_predict_data %>% 
+  mutate(fit_pop,lwr_pop,upr_pop)
+
+
+#drawing graphs
+p1 <- ggplot(whole_predict_data, aes(year)) + 
+  geom_line(aes(y = fit_pop, colour = "fit_pop")) +
+  geom_point(aes(y = fit_pop, colour = "fit_pop"))+
+  geom_line(aes(y = lwr_pop, colour = "lwr_pop")) +
+  geom_point(aes(y = lwr_pop, colour = "lwr_pop"))+
+  geom_line(aes(y = upr_pop, colour = "upr_pop")) +
+  geom_point(aes(y = upr_pop, colour = "upr_pop"))+
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))+
+  ggtitle("Whole country")+
+  labs(y= "Population", x = "Year")+
+  scale_colour_discrete(name = "Bound", labels = c("Fit", "Lower", "Upper"))
+
+
+p2 <- ggplot(seoul_predict_data, aes(year)) + 
+  geom_line(aes(y = fit_pop, colour = "fit_pop")) +
+  geom_point(aes(y = fit_pop, colour = "fit_pop"))+
+  geom_line(aes(y = lwr_pop, colour = "lwr_pop")) +
+  geom_point(aes(y = lwr_pop, colour = "lwr_pop"))+
+  geom_line(aes(y = upr_pop, colour = "upr_pop")) +
+  geom_point(aes(y = upr_pop, colour = "upr_pop"))+
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))+
+  ggtitle("Seoul")+
+  labs(y= "Population", x = "Year")+
+  scale_colour_discrete(name = "Bound", labels = c("Fit", "Lower", "Upper"))
+
+# Display both charts side by side thanks to the patchwork package
+p1 + p2
+
+```
+
+
+### Social Survey {#sec-social-survey}
+
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+#| fig-cap: "Social Perception Survey"
+#| label: fig-3
+
+
+
+
+work_satis <- read_csv(here::here("inputs/data/cleaned/work_satis.csv"))
+env_in_future <- read_csv(here::here("inputs/data/cleaned/env_in_future.csv"))
+sentiment_in_surr <- read_csv(here::here("inputs/data/cleaned/sentiment_in_surr.csv"))
+class_aware <- read_csv(here::here("inputs/data/cleaned/class_aware.csv"))
+trust_in_society <- read_csv(here::here("inputs/data/cleaned/trust_in_society.csv"))
+life_satis <- read_csv(here::here("inputs/data/cleaned/life_satis.csv"))
+achivement_satis <- read_csv(here::here("inputs/data/cleaned/achivement_satis.csv"))
+stress <- read_csv(here::here("inputs/data/cleaned/stress.csv"))
+self_health <- read_csv(here::here("inputs/data/cleaned/self_health.csv"))
+
+
+
+kable(work_satis, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(env_in_future, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(sentiment_in_surr, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(class_aware, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(trust_in_society, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(life_satis, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(achivement_satis, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(stress, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+kable(self_health, booktabs = TRUE, format = "latex") %>% 
+  kable_styling(full_width = T)
+
+```
+
+## Discussion{#sec-discussion}
+asasgasg
+
+## Refereces

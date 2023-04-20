@@ -1,0 +1,79 @@
+"By city & province(1)","Type(1)",Type(2),2021,2021,2021,2021,2021
+"By city & province(1)","Type(1)",Type(2),Total,Very Trustworthy,Moderately Trustworthy,Little Trustworthy,Never Trustworthy
+"Whole country","Total",Total,100.0,4.5,51.1,39.1,5.3
+"Whole country","Total for Dongs, Eups & Myeons",Total for Dongs,100.0,4.4,50.5,39.6,5.5
+"Whole country","Total for Dongs, Eups & Myeons",Total for Eups & Myeons,100.0,4.9,54.2,36.6,4.3
+"Whole country","Gender",Male,100.0,5.0,49.5,39.4,6.1
+"Whole country","Gender",Female,100.0,4.1,52.7,38.7,4.5
+"Whole country","Age",13~19 years old,100.0,5.5,53.8,35.1,5.6
+"Whole country","Age",20~29 years old,100.0,3.9,44.0,43.7,8.3
+"Whole country","Age",30~39 years old,100.0,4.2,48.0,40.7,7.0
+"Whole country","Age",40~49 years old,100.0,3.9,54.6,37.8,3.7
+"Whole country","Age",50~59 years old,100.0,4.8,53.8,37.2,4.2
+"Whole country","Age",60~69 years old,100.0,4.6,50.6,40.0,4.8
+"Whole country","Age",70~79 years old,100.0,5.1,52.3,38.2,4.5
+"Whole country","Age",80 years old and over,100.0,5.7,55.5,35.4,3.4
+"Whole country","Age",60 years old and over,100.0,4.9,51.8,38.8,4.5
+"Whole country","Age",60~64 years old,100.0,4.7,50.3,40.2,4.8
+"Whole country","Age",65 years old and over,100.0,5.0,52.5,38.1,4.3
+"Whole country","Age",65~69 years old,100.0,4.6,50.9,39.8,4.8
+"Whole country","Educational Attainment",Elementary School Graduate & Under,100.0,5.5,54.9,35.1,4.6
+"Whole country","Educational Attainment",Middle School Graduate,100.0,4.7,49.5,40.9,4.9
+"Whole country","Educational Attainment",High School Graduate,100.0,4.2,48.0,41.9,6.0
+"Whole country","Educational Attainment",College or University Graduate & Over,100.0,4.5,53.2,37.3,5.0
+"Whole country","Marital Status",Never married,100.0,4.3,47.6,41.1,7.0
+"Whole country","Marital Status",Married,100.0,4.7,53.0,37.8,4.6
+"Whole country","Marital Status",Widowed,100.0,4.6,53.6,38.1,3.7
+"Whole country","Marital Status",Divorced,100.0,3.9,47.0,43.1,6.0
+"Whole country","Employment Status",Employed,100.0,4.6,51.8,38.4,5.2
+"Whole country","Employment Status",Unemployed or Not Economically Active,100.0,4.4,50.2,39.9,5.4
+"Whole country","Industry",Agriculture & Fishery,100.0,6.8,55.9,33.5,3.8
+"Whole country","Industry",Mining & Manufacturing,100.0,4.0,50.6,39.9,5.5
+"Whole country","Industry",Social overhead capital & other service,100.0,4.6,51.8,38.4,5.2
+"Whole country","Occupation",Pro. Tech. Managers,100.0,5.0,55.4,34.9,4.7
+"Whole country","Occupation",Clerks,100.0,4.6,55.0,35.6,4.8
+"Whole country","Occupation",Service & Sales Workers,100.0,4.2,49.0,41.2,5.6
+"Whole country","Occupation",Agri. Fishery Workers,100.0,7.0,55.7,33.5,3.8
+"Whole country","Occupation",Craft Operator Assemblers,100.0,4.0,48.5,41.7,5.8
+"Whole country","Status of Worker",Wage and salary worker,100.0,4.5,51.8,38.5,5.2
+"Whole country","Status of Worker",Employer,100.0,5.1,52.1,37.7,5.1
+"Whole country","Status of Worker",Own account worker,100.0,4.6,51.7,38.7,5.0
+"Whole country","Average Monthly Household Income",less than 1000 thousand won,100.0,5.1,47.5,41.4,6.0
+"Whole country","Average Monthly Household Income",1000-2000 thousand won,100.0,4.6,47.5,42.1,5.8
+"Whole country","Average Monthly Household Income",2000-3000 thousand won,100.0,3.9,48.1,41.9,6.1
+"Whole country","Average Monthly Household Income",3000-4000 thousand won,100.0,3.7,50.7,41.1,4.5
+"Whole country","Average Monthly Household Income",4000-5000 thousand won,100.0,4.3,52.8,37.8,5.2
+"Whole country","Average Monthly Household Income",5000-6000 thousand won,100.0,4.9,52.4,37.3,5.4
+"Whole country","Average Monthly Household Income",6000 thousand won and over,100.0,5.5,58.4,31.9,4.3
+"Whole country","Age*Gender",13~19 years old*Male,100.0,6.9,51.2,35.3,6.6
+"Whole country","Age*Gender",13~19 years old*Female,100.0,4.1,56.6,34.9,4.5
+"Whole country","Age*Gender",20~29 years old*Male,100.0,4.5,42.8,43.5,9.2
+"Whole country","Age*Gender",20~29 years old*Female,100.0,3.4,45.3,43.9,7.4
+"Whole country","Age*Gender",30~39 years old*Male,100.0,4.7,45.9,41.0,8.3
+"Whole country","Age*Gender",30~39 years old*Female,100.0,3.7,50.4,40.4,5.6
+"Whole country","Age*Gender",40~49 years old*Male,100.0,3.7,52.6,39.3,4.4
+"Whole country","Age*Gender",40~49 years old*Female,100.0,4.1,56.6,36.3,2.9
+"Whole country","Age*Gender",50~59 years old*Male,100.0,5.7,53.8,36.0,4.5
+"Whole country","Age*Gender",50~59 years old*Female,100.0,4.0,53.8,38.3,3.9
+"Whole country","Age*Gender",60 years old and over*Male,100.0,5.2,49.8,39.7,5.3
+"Whole country","Age*Gender",60 years old and over*Female,100.0,4.7,53.5,38.0,3.8
+"Whole country","Age*Gender",65 years old and over*Male,100.0,5.5,49.5,40.0,5.0
+"Whole country","Age*Gender",65 years old and over*Female,100.0,4.6,54.9,36.6,3.8
+"Whole country","Age*Educational Attainment",30~39 years old*Middle School Graduate & Under,100.0,7.6,40.9,38.8,12.7
+"Whole country","Age*Educational Attainment",30~39 years old*High School Graduate,100.0,2.8,41.5,46.1,9.6
+"Whole country","Age*Educational Attainment",30~39 years old*College or University & Over,100.0,4.7,50.5,38.9,6.0
+"Whole country","Age*Educational Attainment",40~49 years old*Middle School Graduate & Under,100.0,4.2,42.4,49.1,4.4
+"Whole country","Age*Educational Attainment",40~49 years old*High School Graduate,100.0,3.5,48.6,43.6,4.4
+"Whole country","Age*Educational Attainment",40~49 years old*College or University & Over,100.0,4.2,58.9,33.8,3.2
+"Whole country","Age*Educational Attainment",50~59 years old*Middle School Graduate & Under,100.0,3.6,48.5,42.5,5.4
+"Whole country","Age*Educational Attainment",50~59 years old*High School Graduate,100.0,4.7,52.1,39.2,4.0
+"Whole country","Age*Educational Attainment",50~59 years old*College or University & Over,100.0,5.4,57.6,33.0,4.0
+"Whole country","Age*Educational Attainment",60 years old and over*Middle School Graduate & Under,100.0,5.2,52.7,37.8,4.3
+"Whole country","Age*Educational Attainment",60 years old and over*High School Graduate,100.0,4.1,50.8,40.6,4.5
+"Whole country","Age*Educational Attainment",60 years old and over*College or University & Over,100.0,5.5,50.9,38.6,5.1
+"Whole country","Age*Educational Attainment",65 years old and over*Middle School Graduate & Under ,100.0,5.1,54.3,36.6,3.9
+"Whole country","Age*Educational Attainment",65 years old and over*High School Graduate,100.0,4.4,49.6,40.8,5.2
+"Whole country","Age*Educational Attainment",65 years old and over*College or University & Over,100.0,5.8,48.8,40.5,4.8
+"Whole country","Age*Educational Attainment",13~29 years old*Middle School Graduate & Under,100.0,5.5,54.6,34.6,5.3
+"Whole country","Age*Educational Attainment",13~29 years old*High School Graduate,100.0,4.8,43.5,42.7,8.9
+"Whole country","Age*Educational Attainment",13~29 years old*College or University & Over,100.0,3.2,46.0,43.7,7.2
