@@ -369,35 +369,25 @@ The individualistic trend among modern 20s and 30s born between the late 80s and
 
 
 
-\newpage
-```{r}
-#| messages: false
-#| echo: false
-#| warning: false
-#| tbl-cap: "Social Survey C"
-#| label: tbl-3
-#| tbl-subcap:
-#| - "Class Awarness"
-#| - "Sentiment in Surrounding"
-#| - "Prediction of Environment Status in 5 years"
-
-kable(class_aware,
-      linesep = "", digits = 1, booktabs=TRUE) %>%
-  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
-  kable_styling(full_width = T)
-
-kable(sentiment_in_surr,
-      linesep = "", digits = 1, booktabs=TRUE) %>%
-  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
-  kable_styling(full_width = T)
-
-kable(env_in_future,
-      linesep = "", digits = 1, booktabs=TRUE) %>%
-  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
-  kable_styling(full_width = T)
-
-```
 ## Discussion{#sec-discussion}
-asasgasg
+### Individualism and Generation Conflict
+
+Historically, Korean society has emphasized communityism and group life. Recently, however, as individualism has begun to prevail between the 20s and 30s, conflicts between the older and the new generation have emerged as a social issue. Generational conflict is a common phenomenon that can be found anywhere in any era, and it was easy to predict a serious generational conflict because Korea has continued to develop rapidly. However, through this study, the rapid population decline, commonly known as the population cliff phenomenon that began in the 2020s, has given individualistic tendencies to people in their 20s and 30s and makes generational conflicts more serious.
+
+In general, the social atmosphere is likely to be seen as a factor affecting population change, but the situation in Korea, which is undergoing rapid population change, gives us the need to look in the opposite direction from the general interpretation. It seems obvious that rapid population change is having a profound impact on young people's social perception, and it seems reasonable to worry that it will have a negative impact on population change.
+
+To escape this vicious cycle, we need to move away from the preference of the family form, which is considered stable in traditional concepts, and change into a society that respects individualism and embraces new forms of families. This requires pre-policy changes that recognize more diverse types of assumptions and social changes that do not give a negative look to new types of family relationships.
+
+### Social Pressure
+
+In general, the main reason for the low birth rate problem is that the younger generation avoids giving birth. The individualism of the younger generation is strongly criticized in society and puts strong social pressure on those who do not have a family by putting the frame of a failed life.
+
+However, this phenomenon is not welcomed by any generation and is promoting generational conflict. Also, it is impossible for a family pushed by these social pressures to maintain harmony for a long time. It should be recognized that population change is a phenomenon that occurs over decades and that every member of society living in the present day is responsible for it. It is necessary to form a society that understands the cause and respects choices, rather than criticizing the avoidance of family formation and childbirth in their 20s and 30s. By forming a consensus through mutual understanding, it is expected that if we find a solution to the problem by making concessions little by little as a sense of community, we will be able to come up with a solution that all generations are satisfied with.
+
+Older generations who have already passed childbearing age should think of ways to divide the burden of childbirth and parenting for younger generations, and younger generations should remember the importance of families by recalling the family bonds they have experienced during their growing years.
+
+### Weakness and Further Research
+
+The study focused on a relatively recent phenomenon that began to appear in 2020. It is difficult to predict whether Korea's population fluctuations will continue to decline or begin to rebound in the future. It's also only been a short time since the public began to feel the phenomenon. That's why there's limited data on popular surveys since the population began to plummet, and there's only a sample that's too small to measure the change. Therefore, it is not known whether the current response will continue or if it will adapt to population changes and react anew. The need for future re-investigation is too important to observe with continuous interest in changes in public perception.
 
 ## Refereces
