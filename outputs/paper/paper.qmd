@@ -35,6 +35,8 @@ The "Demographic Cliff" is a theoretical term used to describe a social situatio
 
 The population decline in Korea is so rapid that it has become a social phenomenon that anyone can easily observe. From elementary school to university, many schools regardless their the level of education in the metropolitan area are closing due to a lack of students, and national security is threatened by a lack of conscription population. As population issues began to become increasingly visible, they began to negatively affect other social issues, including gender conflicts, generational conflicts, regional disparities, and housing issues. This document will focus on how the popular introduction of rapid population decline influenced people's perception of daily life and social problems.
 
+\newpage
+
 The data used in this report is obtained from Open API KOSIS[@kosis], Korean Statistical Information Service. The data is analyzed with R[@cite-r] and Rstudio[@cite-rstudio] and analized with various packages. readxl[@cite-readxl] and here[@cite-here] packages are used to retrieve attained data from KOSIS[@kosis] to the environment. tidyverse[@cite-tidyverse], dplyr[@cite-dplyr], janitor[@cite-janitor], and knitr[@cite-knitr] packages are used to manipulate the data in a fit for research purposes. kableExtra[@cite-kableExtra], patchwork[@cite-patchwork], and scales[@cite-scales] are used to shape the result into intuitive visual format. For details of each data and the data cleaning process that is tailored to the purpose of the document can be found in @sec-data. 
 
 Linear regression model is used in this paper to get an insight of public perception and current trend of Korea demographic changes. @sec-model describes how this model works in purpose of this research and the result of the implication of the model on the data. @sec-result discuss the result of data manipulation with organized result of the data. The discussion is carried out in @sec-discussion about findings from the result regarding social and political impact of current phenomenon, and suggested reaction to it. It also discusses about potential weaknesses and further reaserches of this paper. 
@@ -42,14 +44,15 @@ Linear regression model is used in this paper to get an insight of public percep
 
 ## Data {#sec-data}
 ### Data Sources {#sec-datasource}
-The data used in this report is obtained from Open API KOSIS, Korean Statistical Information Service. The data named "Summary of Census Population(by administrative districtsexage) 1960-2010"is demographic data from the census, which was implemented every five years from 1960, five years after the Korean War armistice, to 2010. This data were used to predict the current population status of South Korea and changes in the number of people over the next 30 years, along with the census's demographics, which were implemented annually from 2015 to 2020 under a changed policy. The second annual census data is named "Population, Households and Housing Units 2015-2020". The analized result can be found in @sec-population-trend.
+The data used in this report is obtained from Open API KOSIS[@kosis], Korean Statistical Information Service. The data named "Summary of Census Population(by administrative districtsexage) 1960-2010"is demographic data from the census, which was implemented every five years from 1960, five years after the Korean War armistice, to 2010. This data were used to predict the current population status of South Korea and changes in the number of people over the next 30 years, along with the census's demographics, which were implemented annually from 2015 to 2020 under a changed policy. The second annual census data is named "Population, Households and Housing Units 2015-2020". The analized result can be found in @sec-population-trend.
 
-Various survey data were also researched to gain insight into the current social perception of the childbearing age population. The data named "Class_Awareness__19_years_old_and_over" is a survey of where each individual thinks their social position is. It's important to note that this is not data based on actual capital, occupation, or social influence, but rather a questionnaire about one's position that an individual feels when considering various factors. The data named "Degree_of_Stress__General_Life__13_years_old_and_over" is a survey of the stress that each individual feels in their overall lives. This data is also a survey of the frequency of stress that individuals feel subjectively, not based on numerical data of work burden, leisure time, or wealth of assets. The data named "Environment_in_the_future__As_Compared_with_5_Years_Ago__13_years_old_and_over" is a prediction of changes in the future environment. This is also a survey of individual guesses, not scientific analysis data through factors such as air quality, degree of industrialization, or future technological development. This data shows how optimistic or pessimistic the Korean people are about future environmental changes. It also indirectly expresses individual thoughts on the current environmental condition of Korea. As environmental climate issues are highlighted in the public, these data are included because the impact of environmental awareness on individual future life design is increasing. The data named "Level_of_Satisfaction_on_Work_Conditions__Efforts_to_prevent_Violence__13_years_old_and_over" is a satisfaction survey of the workplace environment. Since Korea is mentioned every year as one of the most working hours country within OECD countries, satisfaction in the workplace environment is a very important data to learn about the public's social perception. The data named "Satisfaction_with_Achievement__19_years_old_and_over" is a survey of individuals' achievements in their lives to date that they feel. This is similar to the daily life satisfaction survey, but it does not focus on the present life, but on the satisfaction of the past life so far, and the expectation of the future of how much more you can achieve in the future. The data named "Satisfaction_with_Life__13_years_old_and_over" is currently a survey of individual life satisfaction. This is a direct survey of the level of satisfaction with current life. However, it is not a survey of the current standard of living, but a measure of satisfaction with it, and it is a data to find out how people feel about their current living conditions, not the living conditions themselves. The data named "Selfassessment_of_Health__13_years_old_and_over" is about how individuals feel about their health. This is also subjective data on the health status of individuals, not objective data calculated by examining national health care, access to medical services, or disease incidence. This indirectly shows satisfaction and reliability with the current level of medical services in Korea.The data named "Sentiment_in_the_Present_Surrounding_Environment" is a survey of how individuals feel about the current environmental conditions in Korea. This directly represents the level of people's awareness of the current environment of the Republic of Korea as they focused on the present, not on speculation and expectation of the future. The data named "Trust_in_Korean_Society"
+Various survey data were also researched to gain insight into the current social perception of the childbearing age population. The data named "Class_Awareness" is a survey of where each individual thinks their social position is. It's important to note that this is not data based on actual capital, occupation, or social influence, but rather a questionnaire about one's position that an individual feels when considering various factors. The data named "Degree_of_Stress__General_Life" is a survey of the stress that each individual feels in their overall lives. This data is also a survey of the frequency of stress that individuals feel subjectively, not based on numerical data of work burden, leisure time, or wealth of assets.\newpage The data named "Environment_in_the_future__As_Compared_with_5_Years_Ago" is a prediction of changes in the future environment. This is also a survey of individual guesses, not scientific analysis data through factors such as air quality, degree of industrialization, or future technological development. This data shows how optimistic or pessimistic the Korean people are about future environmental changes. It also indirectly expresses individual thoughts on the current environmental condition of Korea. As environmental climate issues are highlighted in the public, these data are included because the impact of environmental awareness on individual future life design is increasing. The data named "Level_of_Satisfaction_on_Work_Conditions" is a satisfaction survey of the workplace environment. Since Korea is mentioned every year as one of the most working hours country within OECD countries, satisfaction in the workplace environment is a very important data to learn about the public's social perception. The data named "Satisfaction_with_Achievement" is a survey of individuals' achievements in their lives to date that they feel. This is similar to the daily life satisfaction survey, but it does not focus on the present life, but on the satisfaction of the past life so far, and the expectation of the future of how much more you can achieve in the future. The data named "Satisfaction_with_Life" is currently a survey of individual life satisfaction. This is a direct survey of the level of satisfaction with current life. However, it is not a survey of the current standard of living, but a measure of satisfaction with it, and it is a data to find out how people feel about their current living conditions, not the living conditions themselves. The data named "Selfassessment_of_Health" is about how individuals feel about their health. This is also subjective data on the health status of individuals, not objective data calculated by examining national health care, access to medical services, or disease incidence. This indirectly shows satisfaction and reliability with the current level of medical services in Korea.The data named "Sentiment_in_the_Present_Surrounding_Environment" is a survey of how individuals feel about the current environmental conditions in Korea. This directly represents the level of people's awareness of the current environment of the Republic of Korea as they focused on the present, not on speculation and expectation of the future. The data named "Trust_in_Korean_Society"
 
 ### Data Cleaning
 
-The obtained data from KOSIS[@cite-kosis] is cleaned to meet the purpose of focus of this paper. For most of the dataset, unnecessary categories have been eliminated as the point of this paper is aimed at the social awareness of childbearing age citizens. So that the revised figures can provide the most accurate information according
+The obtained data from KOSIS[@kosis] is cleaned to meet the purpose of focus of this paper. For most of the dataset, unnecessary categories have been eliminated as the point of this paper is aimed at the social awareness of childbearing age citizens. So that the revised figures can provide the most accurate information according
 to our analysis and not have any information that is unrelevant to our analysis. In addition, general demographic data has been modified to a suitable form for applying the linear regression model used. The modification includes eliminating district specific data, eliminating undefined data, eliminating data summaries, and merging the different forms of census before and after 2015.
+\newpage
 
 ### Data Visualization
 
@@ -63,7 +66,8 @@ A linear regression model was used to estimate the trend of population change in
 
 The forecast for population change in this document is limited to 30 years, a relatively short period unlike other population-related studies, because population change itself is not the core content of this document, along with the preceding reasons. The purpose of predicting the trend of population change in this document is not to predict the exact figure, but to understand the overall direction and trend of the current population change in Korea. Through this, the focus was on sharing and understanding the feelings and rough perceptions of the public in Korean society, which is currently facing a population cliff.
 
-Linear regression is a statistical method used to model the relationship between one or more independent variables and the resulting variable. Given sufficient independent variables in measuring the association between the two, you can predict future variations in the variable. In this paper, simple linear regression is selected among linear regression models for estimating population fluctuations because the accuracy of predictions is not of great importance and its purpose is to determine trends. Simple linear regression has only one independent variable, making it easy to apply the model and intuitive to understand. However, since only one independent variable is considered, the results can be significantly fluctuated for other external factors, and it is difficult to speculate on variable data because it assumes a linear relationship between the two variables. The trend of population fluctuations in this study is to see its direction rather than to derive accurate estimates, also since the estimation period is limited simple linear regression analysis is very suitable .
+Linear regression is a statistical method used to model the relationship between one or more independent variables and the resulting variable. Given sufficient independent variables in measuring the association between the two, you can predict future variations in the variable. In this paper, simple linear regression is selected among linear regression models for estimating population fluctuations because the accuracy of predictions is not of great importance and its purpose is to determine trends. Simple linear regression has only one independent variable, making it easy to apply the model and intuitive to understand. However, since only one independent variable is considered, the results can be significantly fluctuated for other external factors, and it is difficult to speculate on variable data because it assumes a linear relationship between the two variables. The trend of population fluctuations in this study is to see its direction rather than to derive accurate estimates, also since the estimation period is limited simple linear regression analysis is very suitable.
+\newpage
 
 The goal of linear regression is to find the best-fitting line that minimizes the sum of squared errors between the predicted values and the actual values of the dependent variable. This line is represented by a linear equation in the form of following
 
@@ -77,10 +81,14 @@ The coefficients in the model represent the slope of the line or hyperplane and 
 
 The results of the model application can be found on @fig-2 in the @sec-population-trend.
 
-
+\newpage
 
 ## Result {#sec-result}
 ### Population Trend {#sec-population-trend}
+
+The trend of population change is the most important part of this study. The first 15 years of non-natural population change in the aftermath of the Korean War and the Pacific War were excluded from the data, and the last year, when clear statistics were not yet collected, was not included. But the focus is on how the study group accepts it, so the data is compressed and presented as a linear graph.
+
+Korea's population is deformedly concentrated in the capital city of Seoul. Therefore, by collecting the population change of Korea as a whole and the population change of Seoul individually and placing two graphs at the same time, we observed the overall population change and the population concentration phenomenon.
 
 ```{r}
 #| messages: false
@@ -106,7 +114,7 @@ p1 <- ggplot(total_pop, aes(x=year, y=`Whole country`, group=1)) +
   geom_line(aes(y=`Whole country`),color="grey") +
   geom_point(aes(y=`Whole country`))+
   scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))+
-  ggtitle("whole country")+
+  ggtitle("Whole Country")+
   labs(y= "Population", x = "Year")
 
 p2 <- ggplot(total_pop, aes(x=year, y=Seoul, group=1)) +
@@ -121,6 +129,11 @@ p1 + p2
 
 ```
 
+The overall population of Korea has a steady upward graph. Korea's population fluctuations are in line with Korea's economic growth. Following the special demand for Vietnam war in the 1960s and the miracle of the Han River in the 1970s and 1980s, the population change shows extraordinary growth. However, the growth rate tends to fall slightly in the 1990s due to the IMF crisis. However, since 2015, the population growth rate has fallen sharply, showing only insignificant growth, and from 2020, the population begins to decline.
+
+On the other hand, Seoul's population shows much faster growth than Korea's total population. From 1960 to 1990, Seoul's population more than quadrupled, compared to the 1.7-fold increase in Korea's total population. The population of Seoul, which peaked in 1990, has been dispersed due to the development of the surrounding metropolitan area, maintaining about 10 million, but has gradually declined since 2015 and has now fallen below 9.5 million.
+
+Comparing the two graphs, we can see that since 1990, Seoul has maintained a population of about 10 million until 2015, but has not maintained a ratio of the total population. This makes it easy to guess that although the overall population growth rate has fallen since 1990, the population growth rate has not been felt outside of Seoul. Against this backdrop, the simultaneous decline in the total population and the population of Seoul, which began in 2015, can be expected to have made citizens of each province feel that population reduction was more severe than visible figures.
 
 ```{r}
 #| messages: false
@@ -252,19 +265,33 @@ p1 + p2
 
 ```
 
+@fig-2 uses a linear regression model to predict the total population of Korea and Seoul over the next 30 years based on the current population change rate. According to the model, if the current rate of population change remains the same, Korea's total population is expected to return to its pre-1990 level by 2050, and Seoul's population is expected to return to 1970 or earlier after a more rapid decline. Of course, considering Seoul's economic capabilities and infrastructure level, it is not expected that Seoul will suffer such a rapid population loss, but it allows to guess the seriousness of the population decline currently observed in Seoul.
+
+The following tables presented in @sec-social-survey will examine how civilians, especially for those who are in a childbearing age, feels about current status of Korean society from multiple perspectives.
+\newpage
 
 ### Social Survey {#sec-social-survey}
+
+The following @tbl-1 is summarized and summarized items related to the research subjects among the survey data on the current, future, and past perceptions of Korean society from various perspectives. The first table is a survey of overall stress, satisfaction with work, and opinions about one's health. In Korean society, where the culture of comparing with others is rooted, stress is an important measure of the social pressure felt by individuals. There may be many sources of stress, but work is expected to be the biggest factor for the study subjects of this paper, who have just started or are on the verge of starting their social life in modern society, especially in Korea, where urbanization has progressed throughout the country. We will look at this most important factor through a job satisfaction survey. After learning about the overall stress and the work environment that is expected to be the most important of the factors, we will look at surveys related to personal health to learn about the physical impact they have on individuals.
+
+\newpage
 
 ```{r}
 #| messages: false
 #| echo: false
 #| warning: false
-#| fig-cap: "Social Perception Survey"
-#| label: fig-3
+#| tbl-cap: "Social Survey A"
+#| label: tbl-1
+#| tbl-subcap:
+#| - "Stress Assessment"
+#| - "Work Satisfaction"
+#| - "Self Health Assessment"
 
 
 
 
+
+#retrieve and name each data set
 work_satis <- read_csv(here::here("inputs/data/cleaned/work_satis.csv"))
 env_in_future <- read_csv(here::here("inputs/data/cleaned/env_in_future.csv"))
 sentiment_in_surr <- read_csv(here::here("inputs/data/cleaned/sentiment_in_surr.csv"))
@@ -276,36 +303,100 @@ stress <- read_csv(here::here("inputs/data/cleaned/stress.csv"))
 self_health <- read_csv(here::here("inputs/data/cleaned/self_health.csv"))
 
 
+#generate table
 
-kable(work_satis, booktabs = TRUE, format = "latex") %>% 
+kable(stress,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
   kable_styling(full_width = T)
 
-kable(env_in_future, booktabs = TRUE, format = "latex") %>% 
+kable(work_satis,
+      linesep = "", digits = 1,  booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
   kable_styling(full_width = T)
 
-kable(sentiment_in_surr, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(class_aware, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(trust_in_society, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(life_satis, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(achivement_satis, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(stress, booktabs = TRUE, format = "latex") %>% 
-  kable_styling(full_width = T)
-
-kable(self_health, booktabs = TRUE, format = "latex") %>% 
+kable(self_health,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
   kable_styling(full_width = T)
 
 ```
 
+Results from the @tbl-1 show that the stress level for people in their 20s are less than average, while those in their 30s are noticeably higher than average. Due to fierce competition for college entrance and mandatory military service obligations for men, Korean has relatively late in entering society compared to other countries. The 30s are the time when expectations from families and society for childbirth and marriage are highest. The high stress gap between those in their 20s and 30s is believed to be due to the conflict between these expectations and individual values. Sensibly rapid population decline and unstable future forecasts appear to be accelerating this conflict even more violently. 
+
+On the other hand, satisfaction at work does not seem to differ significantly from the average for both people in their 20s and 30s. This is a very unusual value considering the burden of adapting to a new environment that is unfamiliar as a beginner in society. Considering these particular situations in their 20s and 30s, this figure can be interpreted as 20s and 30s are relatively satisfied with their jobs. The pressure from the falling birth rate rather made young people avoid starting a family and having children and focus more on their jobs.
+
+In the self-health assessment, both people in their 20s and 30s diagnosed positively than average, but there is a noticeable gap between those in their 20s and 30s. Considering the difference in the degree of stress felt between those in their 20s and 30s, it can be suspected that the burden of childbirth has led to direct physical problems.
+
+The @tbl-2 contains a survey of overall satisfaction with life, satisfaction with individual achievements, and trust in society. The survey on life satisfaction and satisfaction with individual achievements are in same line. One is a survey of the current situation and environment of the individual, and the other is satisfaction with how they came to their current situation. These are put two together, because these two together allows to indirectly guess what can be expected for the future when individuals maintain the current direction. As we have seen earlier, people in their 20s and 30s are in a situation where individual values and social expectations collide. Therefore, confidence in society can be expected to contradict the results of the previous two surveys.
+
+\newpage
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+#| tbl-cap: "Social Survey B"
+#| label: tbl-2
+#| tbl-subcap:
+#| - "Life Satisfaction"
+#| - "Achievement Satisfaction"
+#| - "Trust in Society"
+
+kable(life_satis,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+kable(achivement_satis,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+kable(trust_in_society,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+```
+
+In the survey of life satisfaction, there is no noticeable difference between those in their 20s and 30s. Those in their 30s showed slightly lower satisfaction than those in their 20s, but this seems to be a natural phenomenon considering the social burden of those in their 30s. However, both groups showed above-average responses, indicating that modern young people who have given up forming and giving birth to families and choosing a personal life are satisfied with the current situation.
+
+Similarly, there is no significant difference between those in their 20s and 30s in the satisfaction survey of past achievements. Those in their 30s show slightly higher confidence than those in their 20s, which shows that those in their 30s who have made individualistic choices do not regret their past choices. 
+
+Unlike the above-average satisfaction surveys, as previously predicted, the social confidence survey showed below-average confidence in both groups in their 20s and 30s. It will not be easy for them to have a good impression on society in a social trend that emphasizes the direction of life that exceeds individual values.
+
+The individualistic trend among modern 20s and 30s born between the late 80s and 90s, also known as the MZ generation, is already an observed phenomenon. But apart from what has already happened, this generation is showing satisfaction and confidence, not regretting their individualistic moves, amid low birth rates, unstable futures, and the social pressures that follow.
+
+
+
+\newpage
+```{r}
+#| messages: false
+#| echo: false
+#| warning: false
+#| tbl-cap: "Social Survey C"
+#| label: tbl-3
+#| tbl-subcap:
+#| - "Class Awarness"
+#| - "Sentiment in Surrounding"
+#| - "Prediction of Environment Status in 5 years"
+
+kable(class_aware,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+kable(sentiment_in_surr,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+kable(env_in_future,
+      linesep = "", digits = 1, booktabs=TRUE) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 10)%>%
+  kable_styling(full_width = T)
+
+```
 ## Discussion{#sec-discussion}
 asasgasg
 
