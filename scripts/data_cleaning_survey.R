@@ -5,9 +5,6 @@
 
 #retrieve data
 work_satis <- read_csv(here::here("inputs/data/raw/Level_of_Satisfaction_on_Work_Conditions__Efforts_to_prevent_Violence__13_years_old_and_over__20230419025955.csv"))
-env_in_future <- read_csv(here::here("inputs/data/raw/Environment_in_the_future__As_Compared_with_5_Years_Ago__13_years_old_and_over__20230419030705.csv"))
-sentiment_in_surr <- read_csv(here::here("inputs/data/raw/Sentiment_in_the_Present_Surrounding_Environment__Air__13_years_old_and_over__20230419030642.csv"))
-class_aware <- read_csv(here::here("inputs/data/raw/Class_Awareness__19_years_old_and_over__20230419030546.csv"))
 trust_in_society <- read_csv(here::here("inputs/data/raw/Trust_in_Korean_Society__13_years_old_and_over__20230419030252.csv"))
 life_satis <- read_csv(here::here("inputs/data/raw/Satisfaction_with_Life__13_years_old_and_over__20230419030238.csv"))
 achivement_satis <- read_csv(here::here("inputs/data/raw/Satisfaction_with_Achievement__19_years_old_and_over__20230419030224.csv"))
